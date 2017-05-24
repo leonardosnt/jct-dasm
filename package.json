@@ -1,0 +1,15 @@
+{
+  "name": "jct-dasm",
+  "version": "1.0.0",
+  "description": "Simple CLI tool to print ClassFiles¹ as text/json.",
+  "main": "src/index.js",
+  "repository": "http://github.com/leonardosnt/jct-dasm",
+  "author": "leonardosnt",
+  "license": "MIT",
+  "dependencies": {
+    "java-class-tools": "^1.1.5"
+  },
+  "bin": {
+    "jct-dasm": "src/index.js"
+  }
+}
