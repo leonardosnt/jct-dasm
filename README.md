@@ -8,7 +8,7 @@ Simple CLI tool to print ClassFiles¹ as text/json.
 
 Will print this:
 
-```json
+```java
 {
   "minor_version": 0,
   "major_version": 52,
@@ -26,6 +26,7 @@ Will print this:
     {
       "tag": 3,
       "bytes": 57343
+    },
     // ...
   ],
   "methods_count": 94,
