@@ -21,6 +21,7 @@ Use "jct-dasm ClassFile.class [output file]"
 Options:
   --json - Print class file as JSON
   --no-color - Don't use colors to print in console
+  --elapsed - Show time took by JavaClassFileReader
 
 Example:
   $ jct-dasm --json Foo.class Foo.json
@@ -45,7 +46,11 @@ if (inputFileData[0] !== 0xCA || inputFileData[1] !== 0xFE ||
 }
 
 const classReader = new JavaClassFileReader();
+
+const readStart = process.hrtime();
 const classFile = classReader.read(inputFileData);
+const readEnd = process.hrtime(readStart);
+
 const classFileToString = options.json
   ? JSON.stringify(classFile, undefined, 2)
   : inspect(classFile, false, 100, !options['no-color']);
@@ -55,4 +60,9 @@ if (outputFile === undefined) {
   console.log(classFileToString);
 } else {
   fs.writeFileSync(outputFile, classFileToString);
+}
+
+if (options['elapsed']) {
+  const elapsedMs = readEnd[0] * 1000.0 + readEnd[1] / 1e6;
+  console.log(`\nTook ${elapsedMs}ms.`);
 }
