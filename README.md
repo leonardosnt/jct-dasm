@@ -4,7 +4,7 @@ Simple CLI tool to print ClassFiles¹ as text/json.
 
 ¹: See [java-class-tools](https://github.com/leonardosnt/java-class-tools) and [jvms 4.1](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-4.html#jvms-4.1)
 
-``$ jct-dasm --json path/to/java/lang/String.class``
+``$ jct-dasm --json AClass.class``
 
 Will print this:
 
